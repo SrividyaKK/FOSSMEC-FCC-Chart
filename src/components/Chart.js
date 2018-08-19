@@ -27,7 +27,8 @@ class Chart extends Component {
 				        title: {
 				        	display: true,
 				        	text: chartData.datasets[0].label,
-				        	fontSize: 15
+				        	fontSize: 15,
+				        	fontFamily: 'Carrois Gothic'
 				        }, 
 				        legend: {
 				        	display: false,
