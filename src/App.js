@@ -26,15 +26,16 @@ class App extends Component {
   		const { chartData } = this.state;
 		return (
 	  		<div className="App">
-	  		{
-	  			chartData.map((user, i) => {
-	  				return (
-	  					<div className='mw5 center bg-white br3 dib ma3 pa3 pa4-ns mv3 ba b--black-10'>
-	  						<Chart chartData={chartData[i]}/>
-	  					</div>
-	  				);
-	  			})
-	  		}
+	  			
+		  		{
+		  			chartData.map((user, i) => {
+		  				return (
+		  					<div className='tc bg-lightest-white dib br3 pa3 ma2 bw2 shadow-3 grow'>
+		  						<Chart chartData={chartData[i]}/>
+		  					</div>
+		  				);
+		  			})
+		  		}
 	  		</div>
 		);
   	}
