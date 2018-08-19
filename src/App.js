@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import Chart from './components/Chart';
+import Charts from './components/Charts';
 import users from './users';
 import 'tachyons';
+import Particles from 'react-particles-js';
+
+const particlesOptions = {
+    particles: {
+        number: {
+            value: 30, 
+            density: {
+                enable: true, 
+                value_area: 800
+            }
+        }, 
+        color: {
+            value: '#FF00FF'
+        }
+    }
+}
 
 class App extends Component {
   	constructor() {
@@ -25,17 +41,12 @@ class App extends Component {
   	render() {
   		const { chartData } = this.state;
 		return (
-	  		<div className="App">
-	  			
-		  		{
-		  			chartData.map((user, i) => {
-		  				return (
-		  					<div className='tc bg-lightest-white dib br3 pa3 ma2 bw2 shadow-3 grow'>
-		  						<Chart chartData={chartData[i]}/>
-		  					</div>
-		  				);
-		  			})
-		  		}
+	  		<div className="App mt5">
+		  		{/* <Particles className='particles'
+	                params={particlesOptions}
+	                style={{width: '100%'}}
+            	/> */}
+            	<Charts chartData={chartData}/>
 	  		</div>
 		);
   	}
