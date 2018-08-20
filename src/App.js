@@ -4,6 +4,7 @@ import Charts from './components/Charts';
 import users from './users';
 import 'tachyons';
 import Particles from 'react-particles-js';
+import 'bootstrap';
 
 const particlesOptions = {
     particles: {
