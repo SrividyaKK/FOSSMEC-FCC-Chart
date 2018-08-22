@@ -4,7 +4,7 @@ import Charts from './components/Charts';
 import users from './users';
 import 'tachyons';
 import Particles from 'react-particles-js';
-import 'bootstrap';
+import LeaderBoard from './components/LeaderBoard';
 
 const particlesOptions = {
     particles: {
@@ -30,7 +30,7 @@ class App extends Component {
  	}
 
  	componentWillMount() {
- 		this.getChartData();
+ 		this.getChartData(); //Async Call
  	}
 
  	getChartData() {
@@ -48,6 +48,7 @@ class App extends Component {
 	                style={{width: '100%'}}
             	/> */}
             	<Charts chartData={chartData}/>
+				<LeaderBoard chartData={chartData} />
 	  		</div>
 		);
   	}
