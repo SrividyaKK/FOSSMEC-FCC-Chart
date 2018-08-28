@@ -4,7 +4,7 @@ import Chart from './Chart';
 
 const Charts = ({ chartData }) => {
 	return (
-		<div>
+		<div className='mt4'>
 			{
 	  			chartData.map((user, i) => {
 	  				return (

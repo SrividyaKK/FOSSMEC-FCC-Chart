@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Charts from './components/Charts';
+// import Charts from './components/Charts';
+// import Main from './components/Main';
 import users from './users';
 import 'tachyons';
 import Particles from 'react-particles-js';
 import LeaderBoard from './components/LeaderBoard';
+import Charts from './components/Charts';
+import Navigation from './components/Navigation';
 
 const particlesOptions = {
     particles: {
@@ -37,16 +40,16 @@ class App extends Component {
  		this.setState({
  			chartData: users
  		}); //end of setState
- 	}
+	 }
 
   	render() {
   		const { chartData } = this.state;
 		return (
-	  		<div className="App mt5">
-		  		{/* <Particles className='particles'
+	  		<div className="App">
+		  		<Particles className='particles'
 	                params={particlesOptions}
-	                style={{width: '100%'}}
-            	/> */}
+            	/>
+				<Navigation />
             	<Charts chartData={chartData}/>
 				<LeaderBoard chartData={chartData} />
 	  		</div>
