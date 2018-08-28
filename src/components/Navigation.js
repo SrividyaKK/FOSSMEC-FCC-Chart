@@ -9,8 +9,8 @@ const Navigation = () => {
             <div className="flex-grow pa2 flex items-center">
                 {/*<a className="f6 link dib white dim mr3 mr4-ns" href="./Charts">User Profiles</a>
                 <a className="f6 link dib white dim mr3 mr4-ns" href="./LeaderBoard">LeaderBoard</a> */}
-                <a className="f6 mr2 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="./Leaderboard">Leaderboard</a>
-                <a className="f6 mr2 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="./Charts">User Profiles</a>
+                <a className="f6 mr2 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="./charts">User Profiles</a>
+                <a className="f6 mr2 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="./leaderboard">Leaderboard</a>
             </div>
         </nav>
     );

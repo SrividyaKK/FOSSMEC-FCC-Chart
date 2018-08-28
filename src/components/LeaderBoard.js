@@ -8,6 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import users from '../users';
+
+
 const CustomTableCell = withStyles(theme => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -44,42 +47,63 @@ function createData(user) {
     return { id, name, position, totalScore, todaysScore };
 }
 
-const LeaderBoard = (props) => {
-    const { classes, chartData } = props;
-    const rows = chartData.map(user => createData(user));
+class LeaderBoard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            chartData: {}
+        }
+    }
 
-    return (
-        <div className='ml6 mr6'>
-            <Paper className={classes.root}>
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
-                        <CustomTableCell numeric>#</CustomTableCell>
-                        <CustomTableCell>Name</CustomTableCell>
-                        <CustomTableCell numeric>Today's Score</CustomTableCell>
-                        <CustomTableCell numeric>Total Score</CustomTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {
-                        rows.map(user => {
-                            return (
-                                <TableRow className={classes.row} key={user.key}>
-                                    <CustomTableCell numeric component="th" scope="row">
-                                        {user.position}
-                                    </CustomTableCell>
-                                    <CustomTableCell>{user.name}</CustomTableCell>
-                                    <CustomTableCell numeric>{user.todaysScore}</CustomTableCell>
-                                    <CustomTableCell numeric>{user.totalScore}</CustomTableCell>
-                                </TableRow>
-                            );
-                        })
-                    }
-                </TableBody>
-            </Table>
-        </Paper>
-        </div>
-    );
+    componentWillMount() {
+        this.getChartData(); //Async Call
+    }
+
+    getChartData() {
+        // TODO: fetch data
+        this.setState({
+            chartData: users
+        }); //end of setState
+    }
+
+    render() {
+        const { classes } = this.props;
+        const { chartData } = this.state; 
+        const rows = chartData.map(user => createData(user));
+
+        return (
+            <div className='ml6 mr6 mt5'>
+                <Paper className={classes.root}>
+                <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <CustomTableCell numeric>#</CustomTableCell>
+                            <CustomTableCell>Name</CustomTableCell>
+                            <CustomTableCell numeric>Today's Score</CustomTableCell>
+                            <CustomTableCell numeric>Total Score</CustomTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {
+                            rows.map(user => {
+                                return (
+                                    <TableRow className={classes.row} key={user.key}>
+                                        <CustomTableCell numeric component="th" scope="row">
+                                            {user.position}
+                                        </CustomTableCell>
+                                        <CustomTableCell>{user.name}</CustomTableCell>
+                                        <CustomTableCell numeric>{user.todaysScore}</CustomTableCell>
+                                        <CustomTableCell numeric>{user.totalScore}</CustomTableCell>
+                                    </TableRow>
+                                );
+                            })
+                        }
+                    </TableBody>
+                </Table>
+            </Paper>
+            </div>
+        );
+    }
 }
 
 LeaderBoard.propTypes = {

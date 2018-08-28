@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 // import Charts from './components/Charts';
 // import Main from './components/Main';
-import users from './users';
 import 'tachyons';
 import Particles from 'react-particles-js';
 import LeaderBoard from './components/LeaderBoard';
 import Charts from './components/Charts';
 import Navigation from './components/Navigation';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const particlesOptions = {
     particles: {
@@ -24,37 +24,20 @@ const particlesOptions = {
     }
 }
 
-class App extends Component {
-  	constructor() {
-		super();
-		this.state = {
-			chartData: {}
-		}
- 	}
-
- 	componentWillMount() {
- 		this.getChartData(); //Async Call
- 	}
-
- 	getChartData() {
- 		this.setState({
- 			chartData: users
- 		}); //end of setState
-	 }
-
-  	render() {
-  		const { chartData } = this.state;
-		return (
-	  		<div className="App">
-		  		<Particles className='particles'
-	                params={particlesOptions}
-            	/>
-				<Navigation />
-            	<Charts chartData={chartData}/>
-				<LeaderBoard chartData={chartData} />
-	  		</div>
-		);
-  	}
-}
+const App = () => (
+	<BrowserRouter>
+		<div className="App">
+			<Particles className='particles'
+				params={particlesOptions}
+			/>
+			<Navigation />
+			<Route exact path='/' component={LeaderBoard} />
+			<Route path='/charts' component={Charts} />
+			<Route path='/leaderboard' component={LeaderBoard} />
+			{/*<Charts chartData={chartData} />
+			<LeaderBoard chartData={chartData} />*/}
+		</div>
+	</BrowserRouter>
+);
 
 export default App;
