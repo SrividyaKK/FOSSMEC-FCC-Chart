@@ -8,6 +8,7 @@ import LeaderBoard from './components/LeaderBoard';
 import Charts from './components/Charts';
 import Navigation from './components/Navigation';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import chartData from './users';
 
 const particlesOptions = {
     particles: {
