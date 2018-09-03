@@ -31,9 +31,9 @@ const App = () => (
 				params={particlesOptions}
 			/>
 			<Navigation />
-			<Route exact path='/' component={LeaderBoard} />
-			<Route path='/charts' component={Charts} />
-			<Route path='/leaderboard' component={LeaderBoard} />
+			<Route exact path='/' render={ () => <LeaderBoard chartData={chartData} />} />
+			<Route path='/user-profiles' component={() => <Charts chartData={chartData} />} />
+			<Route path='/leaderboard' component={() => <LeaderBoard chartData={chartData} />} />
 			{/*<Charts chartData={chartData} />
 			<LeaderBoard chartData={chartData} />*/}
 		</div>
