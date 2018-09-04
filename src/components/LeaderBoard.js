@@ -74,7 +74,7 @@ class LeaderBoard extends React.Component {
         return (
             <div className='ml6 mr6 mt5'>
                 <Paper className={classes.root}>
-                <Table className={classes.table}>
+                <Table className={classes.table} style={{ fontFamily: 'Roboto' }}>
                     <TableHead>
                         <TableRow>
                             <CustomTableCell numeric>#</CustomTableCell>
